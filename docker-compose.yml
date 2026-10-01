@@ -1,0 +1,10 @@
+services:
+  novofon-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      # Прокси — раскомментируйте при необходимости
+      PROXY_URL: "socks5h://192.168.1.55:9051"
+      REQUEST_TIMEOUT: "30"
+    restart: unless-stopped
